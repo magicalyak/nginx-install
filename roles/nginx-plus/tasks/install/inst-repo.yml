@@ -7,7 +7,10 @@
 
 - name: add repository for nginx-plus - centos/rhel
   yum_repository:
-    name: nginx-plus
+    name: nginx-plus repo
     description: NGINX Plus Repository for CentOS/RHEL 7.4+
     baseurl: https://cs.nginx.com/static/files/nginx-plus-7.4.repo
+    sslclientcert: /etc/ssl/nginx/nginx-repo.crt
+    sslclientkey: /etc/ssl/nginx/nginx-repo.key
+    gpgcheck: no
   when: '"CentOS" in os_release.stdout or "Red Hat Enterprise Linux" in os_release.stdout'
