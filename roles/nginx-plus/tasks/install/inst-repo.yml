@@ -1,0 +1,13 @@
+---
+- name: install ca-certificates on master - centos/rhel
+  yum:
+    name: ca-certificates
+    state: present
+  when: '"CentOS" in os_release.stdout or "Red Hat Enterprise Linux" in os_release.stdout'
+
+- name: add repository for nginx-plus - centos/rhel
+  yum_repository:
+    name: nginx-plus
+    description: NGINX Plus Repository for CentOS/RHEL 7.4+
+    baseurl: https://cs.nginx.com/static/files/nginx-plus-7.4.repo
+  when: '"CentOS" in os_release.stdout or "Red Hat Enterprise Linux" in os_release.stdout'

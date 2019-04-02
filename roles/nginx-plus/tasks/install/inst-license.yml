@@ -1,0 +1,15 @@
+---
+- name: Create nginx configuration directory
+  file:
+    path: /etc/ssl/nginx
+    state: directory
+
+- name: copy nginx-repo crt
+  file:
+    src: "{{ role_path }}/files/nginx-repo.crt"
+    dest: /etc/ssl/nginx
+
+- name: copy nginx-repo key
+  file:
+    src: "{{ role_path }}/files/nginx-repo.key"
+    dest: /etc/ssl/nginx

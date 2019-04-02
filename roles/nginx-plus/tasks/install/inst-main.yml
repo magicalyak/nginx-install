@@ -1,0 +1,4 @@
+---
+- include: inst-license.yml
+- include: inst-repo.yml
+- include: inst-nginx-plus.yml

@@ -1,0 +1,13 @@
+---
+- name: install nginx-plus binary
+  yum:
+    name: nginx-plus
+    state: present
+  when: '"CentOS" in os_release.stdout or "Red Hat Enterprise Linux" in os_release.stdout'
+
+- name: enable nginx plus service
+  systemd:
+    name: nginx
+    state: started
+    enabled: yes
+  when: '"CentOS" in os_release.stdout or "Red Hat Enterprise Linux" in os_release.stdout'
